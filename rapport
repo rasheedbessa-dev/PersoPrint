@@ -1,0 +1,9 @@
+Objectif de la présentation
+ L'objectif de cette présentation est de démontrer la conception, le développement et le
+fonctionnement de PersoPrint, une application web de personnalisation et de vente de t-shirts. Le
+projet met en évidence l'utilisation de la pile MERN (MongoDB, Express.js, React et Node.js) pour créer
+une plateforme moderne, interactive et sécurisée. Cette présentation vise également à montrer
+comment les différentes technologies s'intègrent afin d'offrir une expérience utilisateur fluide, allant
+de la personnalisation des produits jusqu'à la gestion des commandes.
+
+

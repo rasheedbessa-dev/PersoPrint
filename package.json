@@ -1,0 +1,8 @@
+{
+  "name": "teecustomizer",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd client && npm install && npm run build && mkdir -p ../server/client && cp -r dist ../server/client/",
+    "start": "cd server && npm install && npm start"
+  }
+}
