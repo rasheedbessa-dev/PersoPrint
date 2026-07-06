@@ -19,6 +19,7 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 )
+export const getDesigns = () => api.get('/upload/designs')
 
 export const register = (data) => api.post('/auth/register', data)
 export const login = (data) => api.post('/auth/login', data)
