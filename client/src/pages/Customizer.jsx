@@ -14,6 +14,7 @@ import tshirtBlanc from '../assets/tshirt-W.png'
 import tshirtNoir from '../assets/tshirt-B.png'
 import {useEffect} from "react";
 import { Rnd } from "react-rnd";
+import { getDesigns } from "../utils/api";
 
 
 
@@ -68,31 +69,29 @@ function Customizer() {
     loadProduct()
 
 }, [productId])
-  useEffect(() => {
+ useEffect(() => {
 
+    const loadDesigns = async () => {
+        try {
 
-    fetch("http://localhost:5000/api/upload/designs")
+            const res = await getDesigns();
 
-        .then(res => res.json())
+            const images = res.data.map(item => ({
+                id: item.id,
+                url: item.imageUrl,
+                name: item.name
+            }));
 
-        .then(data => {
+            setGallery(images);
 
-    const images = data.map(item => ({
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-        id: item.id,
-        url: item.imageUrl,
-        name: item.name
+    loadDesigns();
 
-    }));
-
-    setGallery(images);
-
-})
-
-        .catch(err => console.log(err))
-
-       }, [])
-
+}, []);
   const addImage = (imageUrl) => {
     const newDesign = {
       id: Date.now() + Math.random(),
