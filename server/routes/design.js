@@ -8,10 +8,12 @@ router.get("/", async (req, res) => {
 
         const designs = await Design.find().sort({ createdAt: -1 });
 
-        const images = designs.map(img => ({
+      const images = designs.map(img => ({
             id: img._id,
             name: img.name,
-            url: img.imageUrl
+              url: img.imageUrl.replace(
+        "/upload/",
+        "/upload/w_200,q_auto,f_auto/"
         }));
 
         res.json(images);
